@@ -13,16 +13,13 @@ class ImuSensor(Node):
     message = Imu()
     message.header.stamp = self.get_clock().now().to_msg()
     message.header.frame_id = "base_link"
-    message.linear_acceleration_covariance = [0] * 9
     message.linear_acceleration.x = get_accel_x()
     message.linear_acceleration.y = get_accel_y()
     message.linear_acceleration.z = get_accel_z()
-    message.angular_velocity_covariance = [0] * 9
     message.angular_velocity.x = get_gyro_x()
     message.angular_velocity.y = get_gyro_y()
     message.angular_velocity.z = get_gyro_z()
     # Invalidate quaternion
-    message.orientation_covariance = [-1] + [0] * 8
     message.orientation.x = 0
     message.orientation.y = 0
     message.orientation.z = 0
