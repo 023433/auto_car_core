@@ -17,9 +17,7 @@ class Autocar(Node):
     speed = msg.drive.speed
 
     self.get_logger().info(f"msg.drive.speed : {msg.drive.speed}")
-    # self.get_logger().info(f"msg.drive.acceleration : {msg.drive.acceleration}")
     self.get_logger().info(f"msg.drive.steering_angle : {msg.drive.steering_angle}")
-    # self.get_logger().info(f"msg.drive.steering_angle_velocity : {msg.drive.steering_angle_velocity}")
 
     if steering_angle == 0:
       center()
