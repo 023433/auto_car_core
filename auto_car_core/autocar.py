@@ -26,7 +26,7 @@ class Autocar(Node):
     elif steering_angle > 0:
       turnLeft(steering_angle)
     else:
-      turnRight(steering_angle)
+      turnRight(abs(steering_angle))
 
     if speed == 0:
       stop()
