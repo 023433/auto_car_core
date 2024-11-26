@@ -23,13 +23,13 @@ def center():
 def turnLeft(angle):
   angle = (angle / 100) * -1
   angle = angle * steer_limit
-  a = (centerAngle - angle) * 10
+  a = centerAngle - angle
   wheel.setDuty(GPIO_SERVO, _angle2duty(a))
   print(f'turnLeft: {a}')
 
 def turnRight(angle):
   angle = (angle / 100) * -1
   angle = angle * steer_limit
-  a = (centerAngle + angle) * 10
+  a = centerAngle + angle
   wheel.setDuty(GPIO_SERVO, _angle2duty(a))
   # print(f'turnRight: {a}')
