@@ -20,10 +20,10 @@ class ImuSensor(Node):
     message.angular_velocity.y = get_gyro_y()
     message.angular_velocity.z = get_gyro_z()
     # Invalidate quaternion
-    message.orientation.x = 0
-    message.orientation.y = 0
-    message.orientation.z = 0
-    message.orientation.w = 0
+    message.orientation.x = 0.0
+    message.orientation.y = 0.0
+    message.orientation.z = 0.0
+    message.orientation.w = 0.0
     self.publisher_.publish(message)
 
 def main():
