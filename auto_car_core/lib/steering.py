@@ -16,14 +16,20 @@ value *= -1
 def _angle2duty(n):
   return (WITH_VECTOR / 180) * n + MIN_VECTOR
 
+def center():
+  wheel.setDuty(GPIO_SERVO, _angle2duty(centerAngle))
+  # print(f'center: {centerAngle}')
+
 def turnLeft(angle):
   angle = (angle / 100) * -1
   angle = angle * steer_limit
   a = centerAngle - angle
   wheel.setDuty(GPIO_SERVO, _angle2duty(a))
+  print(f'turnLeft: {a}')
 
 def turnRight(angle):
   angle = (angle / 100) * -1
   angle = angle * steer_limit
   a = centerAngle + angle
   wheel.setDuty(GPIO_SERVO, _angle2duty(a))
+  # print(f'turnRight: {a}')

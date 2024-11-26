@@ -16,6 +16,7 @@ def stop():
   car.setDuty(GPIO_LEFT_FORWARD, 0)
   car.setDuty(GPIO_RIGHT_FORWARD, 0)
   car.setDuty(GPIO_LEFT_BACKWARD, 0)
+  # print(f'stop')
 
 def forward(speed):
   if speed == 0:
@@ -23,10 +24,11 @@ def forward(speed):
     return
   
   rSpeed = limit(speed)
-  car.setDuty(GPIO_RIGHT_FORWARD, 0)
-  car.setDuty(GPIO_LEFT_BACKWARD, 0)
   car.setDuty(GPIO_RIGHT_BACKWARD, rSpeed)
   car.setDuty(GPIO_LEFT_FORWARD, rSpeed)
+  car.setDuty(GPIO_RIGHT_FORWARD, 0)
+  car.setDuty(GPIO_LEFT_BACKWARD, 0)
+  # print(f'forward: {rSpeed}')
 
 def backward(speed):
   if speed == 0:
@@ -38,11 +40,12 @@ def backward(speed):
   car.setDuty(GPIO_LEFT_FORWARD, 0)
   car.setDuty(GPIO_RIGHT_FORWARD, rSpeed)
   car.setDuty(GPIO_LEFT_BACKWARD, rSpeed)
+  # print(f'backward: {rSpeed}')
 
 
 def limit(speed):
   if speed < MIN_SPEED:
-    return MIN_SPEED
+    return MIN_SPEED + speed
   
   if speed > MAX_SPEED:
     return MAX_SPEED
