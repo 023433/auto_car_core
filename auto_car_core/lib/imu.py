@@ -17,9 +17,9 @@ def read_word(adr):
 def read_word_2c(adr):
   val = read_word(adr)
   if (val >= 0x8000):
-    return -((65535 - val) + 1)
+    return float(-((65535 - val) + 1))
   else:
-    return val
+    return float(val)
 
 def get_accel_x():
   return read_word_2c(0x3B)
