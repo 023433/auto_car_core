@@ -20,6 +20,7 @@ setup(
   entry_points={
     'console_scripts': [
       "autocar = auto_car_core.autocar:main",
+      "imu_sensor = auto_car_core.imu_sensor:main",
     ],
   },
 )
